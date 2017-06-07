@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- 移动端布局静止缩放 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<title>我的交易</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/zepto.mdatetimer.css">
+	<!-- 小图标 -->
+	<link rel="shortcut icon" type="image/gif" href="##">
+    <link rel="icon" type="image/gif" href="##">
+    <script type="text/javascript" src="js/zepto.js"></script>
+
+    <script type="text/javascript">
+    	(function (doc, win) {
+			var docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function () {
+			var clientWidth = docEl.clientWidth;
+			if (!clientWidth) return;
+			docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+			};
+
+			if (!doc.addEventListener) return;
+			win.addEventListener(resizeEvt, recalc, false);
+			doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+    </script>
+</head>
+<body>
+	<div class="container">
+		<div class="FlowBox">
+			<p>
+			特别提示：<br/>
+				具体的账单请以支付宝“”我的“”为准，以下数据仅供电子购物小票使用：
+			</p>
+		</div>
+		<div class="clearfix selectTime">
+			<div class="layerS col-60 fleft">
+				<div class="pl10">
+					筛选时间：
+				</div>
+				<div class="clearfix layerInput">
+					<input type="date" id="picktimeStart"  class="sel fleft" placeholder="开始时间">
+			
+					<i class="fleft">-</i>
+					<input type="date" id="picktimeEnd"  class="sel fleft" placeholder="结束时间">
+				</div>
+			</div>
+			<div class="col-40 fleft strom">
+				<div class="pl10">
+					筛选门店：
+				</div>
+				<ul class="selectShop pt5">
+					<li class="shop">---请选择---</li>
+					<li class="shop">---不限---</li>
+					<li class="shop">---1---</li>
+					<li class="shop">---2---</li>
+					<li class="shop">---3---</li>
+				</ul>
+			</div>
+		
+		</div>
+		
+		<div class="clearfix flowh4">
+			<h4 class="fleft">交易流水</h4>
+			<a href="javascript:void(0)" class="fright screening">其他筛选<i class=" icon-all icon-screening fright" style="width: 20px; height: 20px;"></i></a>
+		</div>
+		<div class="clearfix sum">
+			<div class="pl20 fleft">
+				总交易笔数：<span class="num"></span>
+			</div>
+			<div class="fright pr20">
+				总金额合计：<span class="num2"></span>
+			</div>
+		</div>
+		<!-- 预约开始 -->
+		<div id="wrapper">
+			<div class="recommend_box" id="scroller"> 
+				<ul class="flowList" id="thelist">
+					<li class="flowtit">
+						<div class="clearfix">
+							<h4 class="fleft">李伟&nbsp;&nbsp;<i class="i_pay waitCor">等待付款</i></h4>
+							<span class="fright pirce">1022.00</span><div class="fright pay">支付宝支付</div>
+						</div>
+						<div class="clearfix">
+							<i class="fleft">备注：会尽快打还是空的</i>
+							<em class="fright">02-11&nbsp;9:00</em>
+						</div>
+					</li>
+					<li class="flowtit">
+						<div class="clearfix">
+							<h4 class="fleft">李伟&nbsp;&nbsp;<i class="i_pay successCor">付款成功</i></h4>
+							<span class="fright pirce">1022.00</span><div class="fright pay">微信支付</div>
+						</div>
+						<div class="clearfix">
+							<i class="fleft">备注：会尽快打还是空的</i>
+							<em class="fright">02-11&nbsp;9:00</em>
+						</div>
+					</li>
+					<li class="flowtit">
+						<div class="clearfix">
+							<h4 class="fleft">李伟&nbsp;&nbsp;<i class="i_pay calCor">付款已取消</i></h4>
+							<span class="fright pirce">1022.00</span><div class="fright pay">支付宝支付</div>
+						</div>
+						<div class="clearfix">
+							<i class="fleft">备注：会尽快打还是空的</i>
+							<em class="fright">02-11&nbsp;9:00</em>
+						</div>
+					</li>
+					<li class="flowtit">
+						<div class="clearfix">
+							<h4 class="fleft">李伟</h4>
+							<span class="fright pirce">1022.00</span><div class="fright pay">微信支付</div>
+						</div>
+						<div class="clearfix">
+							<i class="fleft">备注：会尽快打还是空的</i>
+							<em class="fright">02-11&nbsp;9:00</em>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="layerSearch" style="display: none;">
+		<div class="layerBox"></div>
+		<div class="layerContent">
+
+			<div class="layerS">
+				<h4>金额区间</h4>
+				<div class="clearfix layerInput">
+					<input type="text" class="fleft" name="" placeholder="开始时间">
+					<i class="fleft">-</i>
+					<input type="text" class="fright" name="" placeholder="结束时间">
+				</div>
+			</div>
+			<div class="layerS">
+				<h4>订单号</h4>
+				<div class="clearfix layerInput">
+					<input type="text" class="fleft orderInput" name="" placeholder="请输入订单号">
+				</div>
+			</div>
+			<input type="button" name="" class="nextBtn bgYellow" value="确定" > 
+		</div>
+	</div>
+	<script type="text/javascript" src="js/zepto.mdatetimer.js"></script>
+	<script type="text/javascript">
+	    function DropDown(el) {
+	        this.dd = el;
+	        this.placeholder = this.dd.children('span');
+	        this.opts = this.dd.find('ul.dropdown > li');
+	        this.val = '';
+	        this.index = -1;
+	        this.initEvents();
+	    }
+	    DropDown.prototype = {
+	        initEvents: function() {
+	            var obj = this;
+	            obj.dd.on('click',
+	            function(event) {
+	                $(this).toggleClass('active');
+	                return false;
+	            });
+	            obj.opts.on('click',
+	            function() {
+	                var opt = $(this);
+	                obj.val = opt.text();
+	                obj.index = opt.index();
+	                obj.placeholder.text('Gender: ' + obj.val);
+	            });
+	        },
+	        getValue: function() {
+	            return this.val;
+	        },
+	        getIndex: function() {
+	            return this.index;
+	        }
+	    }
+	  
+	    $(function() {
+	        var dd = new DropDown($('#dd'));
+	        var dd2=new DropDown($('#dd2'));
+	        var dd3=new DropDown($('#dd3'));
+	  
+	        $(document).click(function() {
+	            // all dropdowns
+	            $('.wrapper-dropdown-1').removeClass('active');
+	        });
+	  	
+	    });
+	</script>
+<!-- 	<script>
+		$(function(){
+
+		//日期控件
+        var configDate = {
+            mode:1, //时间选择器模式：1：年月，5：年月日时,2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒,。默认：1
+            format: 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
+            years: [2016,2017,2018,2019,2020], //年份数组
+            nowbtn: false, //是否显示现在按钮
+            onOk: function () {
+                //alert('OK');
+            },  //点击确定时添加额外的执行函数 默认null
+            onCancel: function () {
+                //alert('A');
+            } //点击取消时添加额外的执行函数 默认null
+        };
+        $('#picktimeStart').mdatetimer(configDate);
+        $('#picktimeEnd').mdatetimer(configDate);
+	});
+
+	</script> -->
+	<script type="text/javascript" src="js/new.js"></script>
+</body>
+</html>
